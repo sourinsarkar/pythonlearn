@@ -34,13 +34,13 @@ class ECar(Car):
         return "Electric Charge"
 
 myTesla = ECar("Tesla", "Model S", "85kwh")
-print(myTesla.fuel_type())
+# print(myTesla.fuel_type())
 
-myCar = Car("Mahindra", "Thar")
-print(myCar.fuel_type())
+# myCar = Car("Mahindra", "Thar")
+# print(myCar.fuel_type())
 
 # print(myCar.general_discription());
-print(Car.general_discription());
+# print(Car.general_discription());
 
 # print(myTesla.model)
 # print(myTesla.batterySize)
@@ -53,3 +53,22 @@ print(Car.general_discription());
 # new_car = Car("TVS", "Jupiter");
 # print(new_car.brand)
 # print(new_car.model)
+
+# Use of "isinstance()"
+# print(isinstance(myTesla, Car))
+# print(isinstance(myTesla, ECar))
+
+class Battery:
+    def battery_info(self):
+        return "This is a battery."
+    
+class Engine:
+    def engine_info(self):
+        return "This is an engine."
+    
+class ECars(Battery, Engine, Car):
+    pass
+
+newTesla = ECars("Tesla", "Model Y");
+print(newTesla.battery_info());
+print(newTesla.engine_info());
