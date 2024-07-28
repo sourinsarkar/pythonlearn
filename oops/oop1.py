@@ -1,20 +1,29 @@
 class Car:
     def __init__(self, userbrand, usermodel):
         self.__brand = userbrand
-        self.model = usermodel
+        self.__model = usermodel
 
     def get_brand(self):
         return self.__brand + '!'
 
     def full_name(self):
-        return f"Brand: {self.__brand} \n {self.model}"
+        return f"Brand: {self.__brand} \n {self.__model}"
 
     def fuel_type(self):
         return "Petrol or Diesel"
     
-    # @staticmethod
+    # Marking a function with the "staticmethod" decorator tells the function that the
+    # function has no dependencies of the class and can be called independently.
+    # This is the way it is called: print(Car.general_disdcription())
+    @staticmethod
     def general_discription():
         return "Cars on means transport."
+    
+    # The "property" decorator makes sure that we can access certain property only and only via
+    # the function itis defined upon
+    @property
+    def model(self):
+        return self.__model
 
 class ECar(Car):
     def __init__(self, brand, model, batterySize):
